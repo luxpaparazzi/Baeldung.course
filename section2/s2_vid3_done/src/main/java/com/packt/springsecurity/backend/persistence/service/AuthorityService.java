@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.packt.springsecurity.backend.persistence.dao.IAuthorityJpaDAO;
 import com.packt.springsecurity.backend.persistence.model.Authority;
 
+import java.util.Optional;
+
 @Transactional
 @Service
 public class AuthorityService implements IAuthorityService {
@@ -27,7 +29,14 @@ public class AuthorityService implements IAuthorityService {
     }
 
     public Authority findById(long id) {
-        return dao.findOne(id);
+        Optional<Authority> t = dao.findById(id);
+        if (t.isPresent()) {
+            return  t.get();
+        }
+        else{
+            return  null;
+        }
+
     }
 
     // write

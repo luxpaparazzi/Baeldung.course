@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.packt.springsecurity.backend.persistence.dao.IUserJpaDAO;
 import com.packt.springsecurity.backend.persistence.model.User;
 
+import java.util.Optional;
+
 @Transactional
 @Service
 public class UserService implements IUserService {
@@ -27,7 +29,14 @@ public class UserService implements IUserService {
     }
 
     public User findById(long id) {
-        return dao.findOne(id);
+        Optional<User> t = dao.findById(id);
+        if (t.isPresent()) {
+            return  t.get();
+        }
+        else{
+            return  null;
+        }
+
     }
 
     // write
