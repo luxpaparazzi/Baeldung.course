@@ -244,7 +244,7 @@ Section 2 - Video 3 - Done</description>
 
 
 		<!-- marshalling -->
-		<jackson.version>2.1.2</jackson.version>
+		<jackson.version>2.13.4.1</jackson.version>
 
 		<!-- persistence -->
 		<hibernate.version>4.1.9.Final</hibernate.version>
